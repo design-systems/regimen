@@ -6,7 +6,9 @@ description = require "./block/description"
 title = require "./block/title"
 subtitle = require "./block/subtitle"
 
+ofType = require "./block/ofType"
 subtypeOf = require "./block/subtypeOf"
+
 
 module.exports = (chai, utils) ->
 
@@ -19,4 +21,5 @@ module.exports = (chai, utils) ->
   title chai, utils
   subtitle chai, utils
 
+  ofType chai, utils
   subtypeOf chai, utils
