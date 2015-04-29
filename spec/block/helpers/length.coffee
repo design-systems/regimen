@@ -17,6 +17,11 @@ module.exports = (property, validBlock, invalidBlock) ->
           expect(validBlock).to.have.a(property).with.length expected
           expect(validBlock).with.a(property).length expected
 
+        it "should succeed negating an invalid block", ->
+          expected = validBlock[property].length - 1
+          expect(validBlock).to.have.a(property).not.with.length expected
+          expect(validBlock).with.a(property).not.length expected
+
         it "should throw an error with an invalid block", ->
           expected = validBlock[property].length - 1
 
@@ -28,6 +33,17 @@ module.exports = (property, validBlock, invalidBlock) ->
             expect(validBlock).with.a(property).length expected
           ).to.throw AssertionError
 
+        it "should throw an error negating a invalid block", ->
+          expected = validBlock[property].length
+
+          expect(->
+            expect(validBlock).to.have.a(property).not.with.length expected
+          ).to.throw AssertionError
+
+          expect(->
+            expect(validBlock).with.a(property).not.length expected
+          ).to.throw AssertionError
+
 
       context "above", ->
 
@@ -36,6 +52,12 @@ module.exports = (property, validBlock, invalidBlock) ->
           expect(validBlock).to.have.a(property).with.length.above expected
           expect(validBlock).to.have.a(property).with.length.gt expected
           expect(validBlock).to.have.a(property).with.length.greaterThan expected
+
+        it "should succeed negating an invalid block", ->
+          expected = validBlock[property].length
+          expect(validBlock).to.have.a(property).with.length.not.above expected
+          expect(validBlock).to.have.a(property).with.length.not.gt expected
+          expect(validBlock).to.have.a(property).with.length.not.greaterThan expected
 
         it "should throw an error with an invalid block", ->
           expected = validBlock[property].length
@@ -52,6 +74,21 @@ module.exports = (property, validBlock, invalidBlock) ->
             expect(validBlock).to.have.a(property).with.length.greaterThan expected
           ).to.throw AssertionError
 
+        it "should throw an error negating a valid block", ->
+          expected = validBlock[property].length - 1
+
+          expect(->
+            expect(validBlock).to.have.a(property).with.length.not.above expected
+          ).to.throw AssertionError
+
+          expect(->
+            expect(validBlock).to.have.a(property).with.length.not.gt expected
+          ).to.throw AssertionError
+
+          expect(->
+            expect(validBlock).to.have.a(property).with.length.not.greaterThan expected
+          ).to.throw AssertionError
+
 
       context "below", ->
 
@@ -60,6 +97,12 @@ module.exports = (property, validBlock, invalidBlock) ->
           expect(validBlock).to.have.a(property).with.length.below expected
           expect(validBlock).to.have.a(property).with.length.lt expected
           expect(validBlock).to.have.a(property).with.length.lessThan expected
+
+        it "should succeed negating an invalid block", ->
+          expected = validBlock[property].length
+          expect(validBlock).to.have.a(property).with.length.not.below expected
+          expect(validBlock).to.have.a(property).with.length.not.lt expected
+          expect(validBlock).to.have.a(property).with.length.not.lessThan expected
 
         it "should throw an error with an invalid block", ->
           expected = validBlock[property].length
@@ -74,6 +117,21 @@ module.exports = (property, validBlock, invalidBlock) ->
 
           expect(->
             expect(validBlock).to.have.a(property).with.length.lessThan expected
+          ).to.throw AssertionError
+
+        it "should throw an error negating a valid block", ->
+          expected = validBlock[property].length + 1
+
+          expect(->
+            expect(validBlock).to.have.a(property).with.length.not.below expected
+          ).to.throw AssertionError
+
+          expect(->
+            expect(validBlock).to.have.a(property).with.length.not.lt expected
+          ).to.throw AssertionError
+
+          expect(->
+            expect(validBlock).to.have.a(property).with.length.not.lessThan expected
           ).to.throw AssertionError
 
 
