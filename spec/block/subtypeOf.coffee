@@ -35,5 +35,6 @@ describe "subtypeOf", ->
     expect(media).to.not.be.a.subtypeOf "textual"
 
   it "should throw an error when expecting a media block to be a subtype of textual", ->
-    exercise = -> expect(media).to.be.a.subtypeOf "textual"
-    expect(exercise).to.throw AssertionError
+    expect(->
+      expect(media).to.be.a.subtypeOf "textual"
+    ).to.throw AssertionError

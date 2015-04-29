@@ -1,6 +1,11 @@
 repost = require "./item/repost" # TODO: accept string, make "type"?
+# expect(item).to.be.a("post").with.a("title")
 
-property = require "./block/property"
+cover = require "./block/cover"
+description = require "./block/description"
+title = require "./block/title"
+subtitle = require "./block/subtitle"
+
 subtypeOf = require "./block/subtypeOf"
 
 module.exports = (chai, utils) ->
@@ -9,5 +14,9 @@ module.exports = (chai, utils) ->
   repost chai, utils
 
   # block
+  cover chai, utils
+  description chai, utils
+  title chai, utils
+  subtitle chai, utils
+
   subtypeOf chai, utils
-  property chai, utils
