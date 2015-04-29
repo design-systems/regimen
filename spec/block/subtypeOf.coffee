@@ -25,21 +25,39 @@ describe "subtypeOf", ->
   context "when expecting a block to be a subtype of itself", ->
     it "should succeed", ->
       expect(textual).to.be.a.subtypeOf "textual"
+      expect(textual).subtypeOf "textual"
 
   context "when expecting a block to be a subtype of its parent type", ->
     it "should succeed", ->
       expect(headline).to.be.a.subtypeOf "textual"
+      expect(headline).subtypeOf "textual"
 
   context "when expecting a block to be a subtype of its grandparent type", ->
     it "should succeed", ->
       expect(h1).to.be.a.subtypeOf "textual"
+      expect(h1).subtypeOf "textual"
 
   context "when expecting a block to not be a subtype of an unrelated type", ->
     it "should succeed", ->
       expect(media).to.not.be.a.subtypeOf "textual"
+      expect(media).not.subtypeOf "textual"
 
   context "when expecting a block to be a subtype of an unrelated type", ->
     it "should throw an error", ->
       expect(->
         expect(media).to.be.a.subtypeOf "textual"
+      ).to.throw AssertionError
+
+      expect(->
+        expect(media).subtypeOf "textual"
+      ).to.throw AssertionError
+
+  context "when expecting a block to not be a subtype of a related type", ->
+    it "should throw an error", ->
+      expect(->
+        expect(media).to.not.be.a.subtypeOf "media"
+      ).to.throw AssertionError
+
+      expect(->
+        expect(media).not.subtypeOf "media"
       ).to.throw AssertionError
