@@ -1,9 +1,7 @@
-repost = require "./item/repost"
+repost = require "./item/repost" # TODO: accept string, make "type"?
 
-description = require "./block/description"
+property = require "./block/property"
 subtypeOf = require "./block/subtypeOf"
-title = require "./block/title"
-subtitle = require "./block/subtitle"
 
 module.exports = (chai, utils) ->
 
@@ -11,7 +9,5 @@ module.exports = (chai, utils) ->
   repost chai, utils
 
   # block
-  description chai, utils
-  subtitle chai, utils
   subtypeOf chai, utils
-  title chai, utils
+  property chai, utils
