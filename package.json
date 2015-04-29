@@ -1,0 +1,32 @@
+{
+  "name": "chai-grid",
+  "version": "0.1.0",
+  "description": "Custom assertions for Chai.",
+  "main": "lib/chai.js",
+  "scripts": {
+    "build": "./node_modules/.bin/coffee --compile --output lib/ src/",
+    "test": "npm run build; ./node_modules/.bin/mocha spec/**/*.coffee --compilers coffee:coffee-script/register --reporter spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/the-grid/chai-grid.git"
+  },
+  "keywords": [
+    "The Grid",
+    "chai"
+  ],
+  "author": "Paul Young",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/the-grid/chai-grid/issues"
+  },
+  "homepage": "https://github.com/the-grid/chai-grid",
+  "dependencies": {
+    "flowerflip": "git+https://grid-bot:UZMgwrT02Hbs@github.com/the-grid/Flowerflip.git"
+  },
+  "devDependencies": {
+    "chai": "^2.3.0",
+    "coffee-script": "^1.9.2",
+    "mocha": "^2.2.4"
+  }
+}
