@@ -3,6 +3,7 @@ repost = require "./item/repost" # TODO: accept string, make "type"?
 
 cover = require "./block/cover"
 description = require "./block/description"
+html = require "./block/html"
 title = require "./block/title"
 subtitle = require "./block/subtitle"
 
@@ -18,8 +19,10 @@ module.exports = (chai, utils) ->
   # block
   cover chai, utils
   description chai, utils
+  html chai, utils
   title chai, utils
   subtitle chai, utils
 
+  # block types
   ofType chai, utils
   subtypeOf chai, utils

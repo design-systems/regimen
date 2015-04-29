@@ -3,7 +3,7 @@ module.exports = (chai, utils) ->
   _overwriteMethod = (preposition, assertion) ->
     (_super) -> (propertyName) ->
       switch propertyName
-        when "cover", "description", "subtitle", "title"
+        when "cover", "description", "html", "subtitle", "title"
           block = @_obj
           utils.flag @, "block.propertyName", { block, propertyName }
           property = block[propertyName]
