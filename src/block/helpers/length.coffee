@@ -9,7 +9,7 @@ module.exports = (chai, utils) ->
       if target?
         negated = utils.flag @, "negate"
         utils.flag @, "object", target
-        actual = target.length
+        actual = target
 
         try
           _super.apply @, arguments
@@ -19,8 +19,8 @@ module.exports = (chai, utils) ->
 
         @assert(
           if negated then not result else result
-          "expected block #{block.id} to have a #{path} with length #{preposition} \#{exp} but length was \#{act}"
-          "expected block #{block.id} to not have a #{path} with length #{preposition} \#{exp} but length was \#{act}"
+          "expected block #{block.id} to have a #{path} #{preposition} \#{exp} but got \#{act}"
+          "expected block #{block.id} to not have a #{path} #{preposition} \#{exp} but got \#{act}"
           expected
           actual
         )
@@ -40,4 +40,4 @@ module.exports = (chai, utils) ->
 
     chai.Assertion.overwriteChainableMethod name, method, property
 
-  overwriteChainableMethod "length", "of"
+  overwriteChainableMethod "length", "with length of"
