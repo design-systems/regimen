@@ -117,6 +117,142 @@ describe "cover", ->
           ).to.throw AssertionError
 
 
+  describe "width", ->
+
+    context "when expecting a block with a cover with a width", ->
+
+      block =
+        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+        cover:
+          width: 1600
+
+      context "to have a width", ->
+        it "should succeed", ->
+          expect(block).to.have.a("cover").with.width
+          expect(block).to.have.a("cover").with.a.width
+
+          expect(block).with.a("cover").with.width
+          expect(block).with.a("cover").with.a.width
+
+      context "to not have a width", ->
+        it "should throw an error", ->
+          expect(->
+            expect(block).to.have.a("cover").not.with.width
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").not.with.a.width
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").not.with.width
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").not.with.a.width
+          ).to.throw AssertionError
+
+    context "when expecting a block with a cover without a width", ->
+
+      block =
+        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+        cover: {}
+
+      context "to not have a width", ->
+        it "should succeed", ->
+          expect(block).to.have.a("cover").not.with.width
+          expect(block).to.have.a("cover").not.with.a.width
+
+          expect(block).with.a("cover").not.with.width
+          expect(block).with.a("cover").not.with.a.width
+
+      context "to have a width", ->
+        it "should throw an error", ->
+          expect(->
+            expect(block).to.have.a("cover").with.width
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").with.a.width
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").with.width
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").with.a.width
+          ).to.throw AssertionError
+
+
+  describe "height", ->
+
+    context "when expecting a block with a cover with a height", ->
+
+      block =
+        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+        cover:
+          height: 900
+
+      context "to have a height", ->
+        it "should succeed", ->
+          expect(block).to.have.a("cover").with.height
+          expect(block).to.have.a("cover").with.a.height
+
+          expect(block).with.a("cover").with.height
+          expect(block).with.a("cover").with.a.height
+
+      context "to not have a height", ->
+        it "should throw an error", ->
+          expect(->
+            expect(block).to.have.a("cover").not.with.height
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").not.with.a.height
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").not.with.height
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").not.with.a.height
+          ).to.throw AssertionError
+
+    context "when expecting a block with a cover without a width", ->
+
+      block =
+        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+        cover: {}
+
+      context "to not have a height", ->
+        it "should succeed", ->
+          expect(block).to.have.a("cover").not.with.height
+          expect(block).to.have.a("cover").not.with.a.height
+
+          expect(block).with.a("cover").not.with.height
+          expect(block).with.a("cover").not.with.a.height
+
+      context "to have a height", ->
+        it "should throw an error", ->
+          expect(->
+            expect(block).to.have.a("cover").with.height
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").with.a.height
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").with.height
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").with.a.height
+          ).to.throw AssertionError
+
+
   describe "orientation", ->
 
     context "when expecting a block with a cover with an orientation", ->

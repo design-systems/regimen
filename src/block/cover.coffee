@@ -11,11 +11,10 @@ module.exports = (chai, utils) ->
   addOrientationMethod = (name) ->
     chai.Assertion.addMethod name, (orientation) ->
       block = @_obj
-      cover = utils.flag @, "block.cover"
 
       if orientation?
         expected = orientation
-        actual = cover?.orientation
+        actual = block.cover.orientation
 
         @assert(
           expected is actual
@@ -27,7 +26,7 @@ module.exports = (chai, utils) ->
 
       else
         @assert(
-          cover.orientation?
+          block.cover.orientation?
           "expected block #{block.id} to have a cover with an orientation"
           "expected block #{block.id} to have a cover without an orientation"
         )
@@ -38,10 +37,27 @@ module.exports = (chai, utils) ->
 
   chai.Assertion.addProperty "src", ->
     block = @_obj
-    cover = utils.flag @, "block.cover"
 
     @assert(
-      cover.src?
+      block.cover.src?
       "expected block #{block.id} cover to have a src"
       "expected block #{block.id} cover to not have a src"
+    )
+
+  chai.Assertion.addProperty "width", ->
+    block = @_obj
+
+    @assert(
+      block.cover.width?
+      "expected block #{block.id} cover to have a width"
+      "expected block #{block.id} cover to not have a width"
+    )
+
+  chai.Assertion.addProperty "height", ->
+    block = @_obj
+
+    @assert(
+      block.cover.height?
+      "expected block #{block.id} cover to have a height"
+      "expected block #{block.id} cover to not have a height"
     )
