@@ -6,8 +6,8 @@ module.exports = (chai, utils) ->
       propertyName = utils.flag @, "block.propertyName"
       property = block[propertyName]
 
-      if property?.length?
-        expected = property?.length
+      if property.length?
+        expected = property.length
         actual = number
 
         @assert(
