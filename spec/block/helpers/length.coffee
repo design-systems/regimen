@@ -4,150 +4,231 @@ chai = require "chai"
 grid = require "../../../src/chai-grid"
 chai.use grid
 
-module.exports = (propertyName, validBlock, invalidBlock) ->
+module.exports = (propertyName, validBlock, invalidBlock, keyName) ->
 
-  describe "#{propertyName} (length)", ->
+  targetName = propertyName
+  targetName = "#{propertyName} #{keyName}" if keyName?
 
-    context "when expecting a block with a #{propertyName}", ->
+  describe "#{targetName} (length)", ->
+
+    context "when expecting a block with a #{targetName}", ->
 
       context "length", ->
 
         it "should succeed with a valid block", ->
-          expected = validBlock[propertyName].length
-          expect(validBlock).to.have.a(propertyName).with.length expected
-          expect(validBlock).with.a(propertyName).length expected
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
+          assertion.with.length expected
+          assertion.length expected
 
         it "should succeed negating an invalid block", ->
-          expected = validBlock[propertyName].length - 1
-          expect(validBlock).to.have.a(propertyName).not.with.length expected
-          expect(validBlock).with.a(propertyName).not.length expected
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length - 1
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
+          assertion.not.with.length expected
+          assertion.not.length expected
 
         it "should throw an error with an invalid block", ->
-          expected = validBlock[propertyName].length - 1
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length - 1
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length expected
+            assertion.with.length expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).with.a(propertyName).length expected
+            assertion.length expected
           ).to.throw AssertionError
 
         it "should throw an error negating a invalid block", ->
-          expected = validBlock[propertyName].length
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).not.with.length expected
+            assertion.not.with.length expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).with.a(propertyName).not.length expected
+            assertion.not.length expected
           ).to.throw AssertionError
 
 
       context "above", ->
 
         it "should succeed with a valid block", ->
-          expected = validBlock[propertyName].length - 1
-          expect(validBlock).to.have.a(propertyName).with.length.above expected
-          expect(validBlock).to.have.a(propertyName).with.length.gt expected
-          expect(validBlock).to.have.a(propertyName).with.length.greaterThan expected
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length - 1
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
+          assertion.with.length.above expected
+          assertion.with.length.gt expected
+          assertion.with.length.greaterThan expected
 
         it "should succeed negating an invalid block", ->
-          expected = validBlock[propertyName].length
-          expect(validBlock).to.have.a(propertyName).with.length.not.above expected
-          expect(validBlock).to.have.a(propertyName).with.length.not.gt expected
-          expect(validBlock).to.have.a(propertyName).with.length.not.greaterThan expected
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
+          assertion.with.length.not.above expected
+          assertion.with.length.not.gt expected
+          assertion.with.length.not.greaterThan expected
 
         it "should throw an error with an invalid block", ->
-          expected = validBlock[propertyName].length
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.above expected
+            assertion.with.length.above expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.gt expected
+            assertion.with.length.gt expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.greaterThan expected
+            assertion.with.length.greaterThan expected
           ).to.throw AssertionError
 
         it "should throw an error negating a valid block", ->
-          expected = validBlock[propertyName].length - 1
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length - 1
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.not.above expected
+            assertion.with.length.not.above expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.not.gt expected
+            assertion.with.length.not.gt expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.not.greaterThan expected
+            assertion.with.length.not.greaterThan expected
           ).to.throw AssertionError
 
 
       context "below", ->
 
         it "should succeed with a valid block", ->
-          expected = validBlock[propertyName].length + 1
-          expect(validBlock).to.have.a(propertyName).with.length.below expected
-          expect(validBlock).to.have.a(propertyName).with.length.lt expected
-          expect(validBlock).to.have.a(propertyName).with.length.lessThan expected
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length + 1
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
+          assertion.with.length.below expected
+          assertion.with.length.lt expected
+          assertion.with.length.lessThan expected
 
         it "should succeed negating an invalid block", ->
-          expected = validBlock[propertyName].length
-          expect(validBlock).to.have.a(propertyName).with.length.not.below expected
-          expect(validBlock).to.have.a(propertyName).with.length.not.lt expected
-          expect(validBlock).to.have.a(propertyName).with.length.not.lessThan expected
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
+          assertion.with.length.not.below expected
+          assertion.with.length.not.lt expected
+          assertion.with.length.not.lessThan expected
 
         it "should throw an error with an invalid block", ->
-          expected = validBlock[propertyName].length
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.below expected
+            assertion.with.length.below expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.lt expected
+            assertion.with.length.lt expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.lessThan expected
+            assertion.with.length.lessThan expected
           ).to.throw AssertionError
 
         it "should throw an error negating a valid block", ->
-          expected = validBlock[propertyName].length + 1
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length + 1
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.not.below expected
+            assertion.with.length.not.below expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.not.lt expected
+            assertion.with.length.not.lt expected
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.not.lessThan expected
+            assertion.with.length.not.lessThan expected
           ).to.throw AssertionError
 
 
       context "within", ->
         it "should succeed with a valid block", ->
-          expected = validBlock[propertyName].length
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length
+
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
           # FIXME expect(validBlock).to.have.a(propertyName).with.length.within 0, expected
-          expect(validBlock).to.have.a(propertyName).with.length.gte(0).and.lte(expected)
+          assertion.with.length.gte(0).and.lte(expected)
 
         it "should fail with an invalid length", ->
-          expected = validBlock[propertyName].length + 1
+          target = validBlock[propertyName]
+          target = target[keyName] if keyName?
+          expected = target.length + 1
 
-          # FIXME expect(->
-          #   expect(validBlock).to.have.a(propertyName).with.length.within 0, expected
-          # )
+          assertion = expect(validBlock).with.a propertyName
+          assertion = assertion[keyName] if keyName?
+
+          # FIXME
+          # # expect(->
+          # #  assertion.with.length.within 0, expected
+          # # )
 
           expect(->
-            expect(validBlock).to.have.a(propertyName).with.length.gte(0).and.lte(expected)
+            assertion.with.length.gte(0).and.lte(expected)
           )

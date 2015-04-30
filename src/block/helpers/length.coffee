@@ -11,8 +11,12 @@ module.exports = (chai, utils, keyName) ->
 
         value = property[keyName]
 
-        target = value
-        target ?= property
+        if value?
+          target = value
+          targetName = "#{propertyName} #{keyName}"
+        else
+          target = property
+          targetName = propertyName
 
         utils.flag @, "object", target
         actual = target.length
@@ -25,8 +29,8 @@ module.exports = (chai, utils, keyName) ->
 
         @assert(
           if negated then not result else result
-          "expected block #{block.id} to have a #{propertyName} with length #{preposition} \#{exp} but length was \#{act}"
-          "expected block #{block.id} to not have a #{propertyName} with length #{preposition} \#{exp} but length was \#{act}"
+          "expected block #{block.id} to have a #{targetName} with length #{preposition} \#{exp} but length was \#{act}"
+          "expected block #{block.id} to not have a #{targetName} with length #{preposition} \#{exp} but length was \#{act}"
           expected
           actual
         )
