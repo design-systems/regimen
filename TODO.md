@@ -2,6 +2,8 @@
 
 Add and update specs with:
 
+* does
+  - used like "does not"
 * doesnt
   - alias for "not"
 * without
