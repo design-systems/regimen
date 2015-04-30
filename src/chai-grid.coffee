@@ -16,18 +16,18 @@ cover = require "./block/cover"
 module.exports = (chai, utils) ->
 
   # item
-  repost.apply @, arguments
+  repost chai, utils
 
   # block types
-  ofType.apply @, arguments
-  subtypeOf.apply @, arguments
+  ofType chai, utils
+  subtypeOf chai, utils
 
   # block helpers
-  contains.apply @, arguments
-  comparison.apply @, arguments
-  equality.apply @, arguments
-  existence.apply @, arguments
-  length.apply @, arguments
+  contains chai, utils
+  comparison chai, utils
+  equality chai, utils
+  existence chai, utils
+  length chai, utils
 
   # block.properties
-  cover.apply @, arguments
+  cover chai, utils
