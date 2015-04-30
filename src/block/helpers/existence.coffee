@@ -16,17 +16,9 @@ module.exports = (chai, utils) ->
       else
         _super.apply @, arguments
 
-
-  overwriteMethod = (name, preposition) ->
-    method = _overwriteMethod preposition
-    chai.Assertion.overwriteMethod name, method
-
   overwriteChainableMethod = (name, preposition) ->
     method = _overwriteMethod preposition
-
-    property = (_super) ->
-      _super
-
+    property = (_super) -> _super
     chai.Assertion.overwriteChainableMethod name, method, property
 
 
