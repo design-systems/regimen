@@ -5,8 +5,9 @@ module.exports = (chai, utils) ->
       switch propertyName
         when "cover", "description", "html", "subtitle", "title"
           block = @_obj
-          utils.flag @, "block.propertyName", { block, propertyName }
           property = block[propertyName]
+          utils.flag @, "block.propertyName", { block, propertyName }
+          utils.flag @, "block.#{propertyName}", property
 
           @assert(
             assertion property
