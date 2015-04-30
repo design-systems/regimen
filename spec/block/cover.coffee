@@ -1,4 +1,5 @@
 contains = require "./helpers/contains"
+comparison = require "./helpers/comparison"
 equality = require "./helpers/equality"
 existence = require "./helpers/existence"
 length = require "./helpers/length"
@@ -43,17 +44,19 @@ blockWithoutCoverHeight =
 equality "cover", validBlock, blockWithoutCover
 existence "cover", validBlock, blockWithoutCover
 
-contains "cover.src", validBlock, differentValidBlock
+contains "cover.src", validBlock
 existence "cover.src", validBlock, blockWithoutCoverSrc
-length "cover.src", validBlock, differentValidBlock
+length "cover.src", validBlock
+
+comparison "cover.src.length", validBlock
 
 equality "cover.width", validBlock, differentValidBlock
 existence "cover.width", validBlock, blockWithoutCoverWidth
-# length "cover.width", validBlock, differentValidBlock
+comparison "cover.width", validBlock
 
 equality "cover.height", validBlock, differentValidBlock
 existence "cover.height", validBlock, blockWithoutCoverHeight
-# length "cover.height", validBlock, differentValidBlock
+comparison "cover.height", validBlock
 
 
 

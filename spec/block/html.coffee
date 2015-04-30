@@ -12,4 +12,4 @@ invalidBlock =
 property = "html"
 equality property, validBlock, invalidBlock
 existence property, validBlock, invalidBlock
-length property, validBlock, invalidBlock
+length property, validBlock

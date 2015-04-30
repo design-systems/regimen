@@ -40,4 +40,30 @@ module.exports = (chai, utils) ->
 
     chai.Assertion.overwriteChainableMethod name, method, property
 
-  overwriteChainableMethod "length", "of"
+
+  overwriteLeastMethod = (name) ->
+    overwriteMethod name, "at least"
+
+  overwriteMostMethod = (name) ->
+    overwriteMethod name, "at most"
+
+  overwriteAboveMethod = (name) ->
+    overwriteMethod name, "above"
+
+  overwriteBelowMethod = (name) ->
+    overwriteMethod name, "below"
+
+
+  overwriteLeastMethod "least"
+  overwriteLeastMethod "gte"
+
+  overwriteMostMethod "most"
+  overwriteMostMethod "lte"
+
+  overwriteAboveMethod "above"
+  overwriteAboveMethod "gt"
+  overwriteAboveMethod "greaterThan"
+
+  overwriteBelowMethod "below"
+  overwriteBelowMethod "lt"
+  overwriteBelowMethod "lessThan"

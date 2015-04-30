@@ -5,6 +5,7 @@ ofType = require "./block/ofType"
 subtypeOf = require "./block/subtypeOf"
 
 contains = require "./block/helpers/contains"
+comparison = require "./block/helpers/comparison"
 equality = require "./block/helpers/equality"
 existence = require "./block/helpers/existence"
 length = require "./block/helpers/length"
@@ -23,6 +24,7 @@ module.exports = (chai, utils) ->
 
   # block helpers
   contains.apply @, arguments
+  comparison.apply @, arguments
   equality.apply @, arguments
   existence.apply @, arguments
   length.apply @, arguments

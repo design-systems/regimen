@@ -12,4 +12,4 @@ invalidBlock =
 property = "description"
 equality property, validBlock, invalidBlock
 existence property, validBlock, invalidBlock
-length property, validBlock, invalidBlock
+length property, validBlock

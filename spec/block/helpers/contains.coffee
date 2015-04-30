@@ -4,7 +4,7 @@ chai = require "chai"
 grid = require "../../../src/chai-grid"
 chai.use grid
 
-module.exports = (path, validBlock, invalidBlock) ->
+module.exports = (path, validBlock) ->
 
   describe "#{path} (contains)", ->
 
