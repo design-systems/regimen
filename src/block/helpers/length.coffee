@@ -8,8 +8,8 @@ module.exports = (chai, utils) ->
 
       if property?.length?
         negated = utils.flag @, "negate"
-        actual = property
-        utils.flag @, "object", actual
+        actual = property.length
+        utils.flag @, "object", property
 
         try
           _super.apply @, arguments
