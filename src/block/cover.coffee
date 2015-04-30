@@ -19,8 +19,8 @@ module.exports = (chai, utils) ->
 
         @assert(
           expected is actual
-          "expected block #{block.id} to have a cover with orientation \#{exp} but got \#{act}"
-          "expected block #{block.id} to have a cover without orientation \#{exp} but got \#{act}"
+          "expected block #{block.id} to have a cover with \#{exp} orientation but got \#{act}"
+          "expected block #{block.id} to have a cover without \#{exp} orientation but got \#{act}"
           expected
           actual
         )
