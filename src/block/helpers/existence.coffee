@@ -6,7 +6,7 @@ module.exports = (chai, utils) ->
         when "cover", "description", "html", "subtitle", "title"
           block = @_obj
           property = block[propertyName]
-          utils.flag @, "block.propertyName", { block, propertyName }
+          utils.flag @, "block.propertyName", propertyName
           utils.flag @, "block.#{propertyName}", property
 
           @assert(

@@ -2,7 +2,8 @@ module.exports = (chai, utils) ->
 
   _overwriteMethod = (preposition, assertion) ->
     (_super) -> (number) ->
-      {block, propertyName} = utils.flag @, "block.propertyName"
+      block = @_obj
+      propertyName = utils.flag @, "block.propertyName"
       property = block[propertyName]
 
       if property?.length?

@@ -2,9 +2,10 @@ module.exports = (chai, utils) ->
 
   _overwriteMethod = (preposition, assertion) ->
     (_super) -> (value) ->
-      {block, propertyName} = utils.flag @, "block.propertyName"
-      deep = utils.flag @, "deep"
+      block = @_obj
+      propertyName = utils.flag @, "block.propertyName"
       property = block[propertyName]
+      deep = utils.flag @, "deep"
 
       if property?
         if deep
