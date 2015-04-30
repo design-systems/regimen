@@ -4,7 +4,8 @@
   "description": "Custom assertions for Chai.",
   "main": "lib/chai.js",
   "scripts": {
-    "build": "./node_modules/.bin/coffee --compile --output lib/ src/",
+    "build": "npm run clean; ./node_modules/.bin/coffee --compile --output lib/ src/",
+    "clean": "find . -type f -name 'lib/**.*' -delete",
     "test": "npm run build; ./node_modules/.bin/mocha spec/**/*.coffee --compilers coffee:coffee-script/register --reporter spec"
   },
   "repository": {
