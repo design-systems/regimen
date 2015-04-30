@@ -1,23 +1,13 @@
-module.exports = (chai, utils, keyName) ->
+module.exports = (chai, utils) ->
 
   _overwriteMethod = (preposition) ->
     (_super) -> (expected) ->
       block = @_obj
-      propertyName = utils.flag @, "block.propertyName"
-      property = block[propertyName]
+      path = utils.flag @, "block.pathValue"
+      target = utils.getPathValue path, block
 
-      if property?
+      if target?
         negated = utils.flag @, "negate"
-
-        value = property[keyName]
-
-        if value?
-          target = value
-          targetName = "#{propertyName} #{keyName}"
-        else
-          target = property
-          targetName = propertyName
-
         utils.flag @, "object", target
         actual = target.length
 
@@ -29,8 +19,8 @@ module.exports = (chai, utils, keyName) ->
 
         @assert(
           if negated then not result else result
-          "expected block #{block.id} to have a #{targetName} with length #{preposition} \#{exp} but length was \#{act}"
-          "expected block #{block.id} to not have a #{targetName} with length #{preposition} \#{exp} but length was \#{act}"
+          "expected block #{block.id} to have a #{path} with length #{preposition} \#{exp} but length was \#{act}"
+          "expected block #{block.id} to not have a #{path} with length #{preposition} \#{exp} but length was \#{act}"
           expected
           actual
         )

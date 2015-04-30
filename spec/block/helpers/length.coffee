@@ -4,231 +4,172 @@ chai = require "chai"
 grid = require "../../../src/chai-grid"
 chai.use grid
 
-module.exports = (propertyName, validBlock, invalidBlock, keyName) ->
+module.exports = (path, validBlock, invalidBlock) ->
 
-  targetName = propertyName
-  targetName = "#{propertyName} #{keyName}" if keyName?
+  describe "#{path} (length)", ->
 
-  describe "#{targetName} (length)", ->
-
-    context "when expecting a block with a #{targetName}", ->
+    context "when expecting a block with a #{path}", ->
 
       context "length", ->
 
         it "should succeed with a valid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length
 
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
-
-          assertion.with.length expected
-          assertion.length expected
+          expect(validBlock).with.a(path).with.length expected
+          expect(validBlock).with.a(path).length expected
 
         it "should succeed negating an invalid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length - 1
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length - 1
 
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
-
-          assertion.not.with.length expected
-          assertion.not.length expected
+          expect(validBlock).with.a(path).not.with.length expected
+          expect(validBlock).with.a(path).not.length expected
 
         it "should throw an error with an invalid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length - 1
-
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length - 1
 
           expect(->
-            assertion.with.length expected
+            expect(validBlock).with.a(path).with.length expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.length expected
+            expect(validBlock).with.a(path).length expected
           ).to.throw AssertionError
 
         it "should throw an error negating a invalid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length
-
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length
 
           expect(->
-            assertion.not.with.length expected
+            expect(validBlock).with.a(path).not.with.length expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.not.length expected
+            expect(validBlock).with.a(path).not.length expected
           ).to.throw AssertionError
 
 
       context "above", ->
 
         it "should succeed with a valid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length - 1
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length - 1
 
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
-
-          assertion.with.length.above expected
-          assertion.with.length.gt expected
-          assertion.with.length.greaterThan expected
+          expect(validBlock).with.a(path).with.length.above expected
+          expect(validBlock).with.a(path).with.length.gt expected
+          expect(validBlock).with.a(path).with.length.greaterThan expected
 
         it "should succeed negating an invalid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length
 
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
-
-          assertion.with.length.not.above expected
-          assertion.with.length.not.gt expected
-          assertion.with.length.not.greaterThan expected
+          expect(validBlock).with.a(path).with.length.not.above expected
+          expect(validBlock).with.a(path).with.length.not.gt expected
+          expect(validBlock).with.a(path).with.length.not.greaterThan expected
 
         it "should throw an error with an invalid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length
-
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length
 
           expect(->
-            assertion.with.length.above expected
+            expect(validBlock).with.a(path).with.length.above expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.gt expected
+            expect(validBlock).with.a(path).with.length.gt expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.greaterThan expected
+            expect(validBlock).with.a(path).with.length.greaterThan expected
           ).to.throw AssertionError
 
         it "should throw an error negating a valid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length - 1
-
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length - 1
 
           expect(->
-            assertion.with.length.not.above expected
+            expect(validBlock).with.a(path).with.length.not.above expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.not.gt expected
+            expect(validBlock).with.a(path).with.length.not.gt expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.not.greaterThan expected
+            expect(validBlock).with.a(path).with.length.not.greaterThan expected
           ).to.throw AssertionError
 
 
       context "below", ->
 
         it "should succeed with a valid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length + 1
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length + 1
 
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
-
-          assertion.with.length.below expected
-          assertion.with.length.lt expected
-          assertion.with.length.lessThan expected
+          expect(validBlock).with.a(path).with.length.below expected
+          expect(validBlock).with.a(path).with.length.lt expected
+          expect(validBlock).with.a(path).with.length.lessThan expected
 
         it "should succeed negating an invalid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length
 
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
-
-          assertion.with.length.not.below expected
-          assertion.with.length.not.lt expected
-          assertion.with.length.not.lessThan expected
+          expect(validBlock).with.a(path).with.length.not.below expected
+          expect(validBlock).with.a(path).with.length.not.lt expected
+          expect(validBlock).with.a(path).with.length.not.lessThan expected
 
         it "should throw an error with an invalid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length
-
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length
 
           expect(->
-            assertion.with.length.below expected
+            expect(validBlock).with.a(path).with.length.below expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.lt expected
+            expect(validBlock).with.a(path).with.length.lt expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.lessThan expected
+            expect(validBlock).with.a(path).with.length.lessThan expected
           ).to.throw AssertionError
 
         it "should throw an error negating a valid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length + 1
-
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length + 1
 
           expect(->
-            assertion.with.length.not.below expected
+            expect(validBlock).with.a(path).with.length.not.below expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.not.lt expected
+            expect(validBlock).with.a(path).with.length.not.lt expected
           ).to.throw AssertionError
 
           expect(->
-            assertion.with.length.not.lessThan expected
+            expect(validBlock).with.a(path).with.length.not.lessThan expected
           ).to.throw AssertionError
 
 
       context "within", ->
         it "should succeed with a valid block", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length
 
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
-
-          # FIXME expect(validBlock).to.have.a(propertyName).with.length.within 0, expected
-          assertion.with.length.gte(0).and.lte(expected)
+          # FIXME expect(validBlock).to.have.a(path).with.length.within 0, expected
+          expect(validBlock).with.a(path).with.length.gte(0).and.lte(expected)
 
         it "should fail with an invalid length", ->
-          target = validBlock[propertyName]
-          target = target[keyName] if keyName?
-          expected = target.length + 1
-
-          assertion = expect(validBlock).with.a propertyName
-          assertion = assertion[keyName] if keyName?
+          value = chai.util.getPathValue path, validBlock
+          expected = value.length + 1
 
           # FIXME
           # # expect(->
-          # #  assertion.with.length.within 0, expected
+          # #  expect(validBlock).with.a(path).with.length.within 0, expected
           # # )
 
           expect(->
-            assertion.with.length.gte(0).and.lte(expected)
+            expect(validBlock).with.a(path).with.length.gte(0).and.lte(expected)
           )

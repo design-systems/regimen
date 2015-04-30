@@ -1,13 +1,4 @@
-contains = require "./helpers/contains"
-equality = require "./helpers/equality"
-existence = require "./helpers/existence"
-length = require "./helpers/length"
-
 module.exports = (chai, utils) ->
-  contains.call @, chai, utils, "src"
-  equality.call @, chai, utils
-  existence.call @, chai, utils
-
 
   addOrientationMethod = (name) ->
     chai.Assertion.addMethod name, (orientation) ->
@@ -38,7 +29,7 @@ module.exports = (chai, utils) ->
 
   chai.Assertion.addProperty "src", ->
     block = @_obj
-    length.call @, chai, utils, "src"
+    utils.flag @, "block.pathValue", "cover.src"
 
     @assert(
       block.cover.src?
@@ -48,6 +39,7 @@ module.exports = (chai, utils) ->
 
   chai.Assertion.addProperty "width", ->
     block = @_obj
+    utils.flag @, "block.pathValue", "cover.width"
 
     @assert(
       block.cover.width?
@@ -57,6 +49,7 @@ module.exports = (chai, utils) ->
 
   chai.Assertion.addProperty "height", ->
     block = @_obj
+    utils.flag @, "block.pathValue", "cover.height"
 
     @assert(
       block.cover.height?

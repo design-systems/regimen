@@ -3,6 +3,7 @@ equality = require "./helpers/equality"
 existence = require "./helpers/existence"
 length = require "./helpers/length"
 
+
 validBlock =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   cover:
@@ -10,15 +11,50 @@ validBlock =
     width: 1600
     height: 900
 
-invalidBlock =
+differentValidBlock =
+  id: "88c63e90-803b-4a20-8384-a14b0c4900f4"
+  cover:
+    src: "cover.png"
+    width: 1920
+    height: 1200
+
+blockWithoutCover =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
 
-property = "cover"
-contains property, "src", validBlock, invalidBlock
-equality property, validBlock, invalidBlock
-existence property, validBlock, invalidBlock
+blockWithoutCoverSrc =
+  id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+  cover:
+    width: 1600
+    height: 900
 
-length property, validBlock, invalidBlock, "src"
+blockWithoutCoverWidth =
+  id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+  cover:
+    src: "cover.jpg"
+    height: 900
+
+blockWithoutCoverHeight =
+  id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+  cover:
+    src: "cover.jpg"
+    width: 1600
+
+
+equality "cover", validBlock, blockWithoutCover
+existence "cover", validBlock, blockWithoutCover
+
+contains "cover.src", validBlock, differentValidBlock
+existence "cover.src", validBlock, blockWithoutCoverSrc
+length "cover.src", validBlock, differentValidBlock
+
+equality "cover.width", validBlock, differentValidBlock
+existence "cover.width", validBlock, blockWithoutCoverWidth
+# length "cover.width", validBlock, differentValidBlock
+
+equality "cover.height", validBlock, differentValidBlock
+existence "cover.height", validBlock, blockWithoutCoverHeight
+# length "cover.height", validBlock, differentValidBlock
+
 
 
 chai = require "chai"

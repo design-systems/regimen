@@ -4,61 +4,61 @@ chai = require "chai"
 grid = require "../../../src/chai-grid"
 chai.use grid
 
-module.exports = (propertyName, validBlock, invalidBlock) ->
+module.exports = (path, validBlock, invalidBlock) ->
 
-  describe "#{propertyName} (existence)", ->
+  describe "#{path} (existence)", ->
 
-    context "when expecting a block with a #{propertyName}", ->
+    context "when expecting a block with a #{path}", ->
 
-      context "to have a #{propertyName}", ->
+      context "to have a #{path}", ->
         it "should succeed", ->
-          expect(validBlock).to.have.a propertyName
-          expect(validBlock).to.have.an propertyName
-          expect(validBlock).with.a propertyName
-          expect(validBlock).with.an propertyName
+          expect(validBlock).to.have.a path
+          expect(validBlock).to.have.an path
+          expect(validBlock).with.a path
+          expect(validBlock).with.an path
 
-      context "to not have a #{propertyName}", ->
+      context "to not have a #{path}", ->
         it "should throw an error", ->
           expect(->
-            expect(validBlock).to.not.have.a propertyName
+            expect(validBlock).to.not.have.a path
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).to.not.have.an propertyName
+            expect(validBlock).to.not.have.an path
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).with.not.a propertyName
+            expect(validBlock).with.not.a path
           ).to.throw AssertionError
 
           expect(->
-            expect(validBlock).with.not.an propertyName
+            expect(validBlock).with.not.an path
           ).to.throw AssertionError
 
 
-    context "when expecting a block without a #{propertyName}", ->
+    context "when expecting a block without a #{path}", ->
 
-      context "to not have a #{propertyName}", ->
+      context "to not have a #{path}", ->
         it "should succeed", ->
-          expect(invalidBlock).to.not.have.a propertyName
-          expect(invalidBlock).to.not.have.an propertyName
-          expect(invalidBlock).not.with.a propertyName
-          expect(invalidBlock).not.with.an propertyName
+          expect(invalidBlock).to.not.have.a path
+          expect(invalidBlock).to.not.have.an path
+          expect(invalidBlock).not.with.a path
+          expect(invalidBlock).not.with.an path
 
-      context "to have a #{propertyName}", ->
+      context "to have a #{path}", ->
         it "should throw an error", ->
           expect(->
-            expect(invalidBlock).to.have.a propertyName
+            expect(invalidBlock).to.have.a path
           ).to.throw AssertionError
 
           expect(->
-            expect(invalidBlock).to.have.an propertyName
+            expect(invalidBlock).to.have.an path
           ).to.throw AssertionError
 
           expect(->
-            expect(invalidBlock).with.a propertyName
+            expect(invalidBlock).with.a path
           ).to.throw AssertionError
 
           expect(->
-            expect(invalidBlock).with.an propertyName
+            expect(invalidBlock).with.an path
           ).to.throw AssertionError
