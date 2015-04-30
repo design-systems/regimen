@@ -17,8 +17,8 @@ module.exports = (chai, utils) ->
 
         @assert(
           assertion actual, expected
-          "expected block #{block.id} to have a #{property} #{preposition} \#{exp} but got \#{act}"
-          "expected block #{block.id} to not have a #{property} #{preposition} \#{exp} but got \#{act}"
+          "expected block #{block.id} to have a #{propertyName} #{preposition} \#{exp} but got \#{act}"
+          "expected block #{block.id} to not have a #{propertyName} #{preposition} \#{exp} but got \#{act}"
           actual
           expected
         )
