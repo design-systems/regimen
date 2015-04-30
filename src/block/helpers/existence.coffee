@@ -1,6 +1,6 @@
 module.exports = (chai, utils) ->
 
-  _overwriteMethod = (preposition, assertion) ->
+  _overwriteMethod = (preposition) ->
     (_super) -> (propertyName) ->
       switch propertyName
         when "cover", "description", "html", "subtitle", "title"
@@ -10,7 +10,7 @@ module.exports = (chai, utils) ->
           utils.flag @, "block.#{propertyName}", property
 
           @assert(
-            assertion property
+            property?
             "expected block #{block.id} to have a #{propertyName}"
             "expected block #{block.id} to not have a #{propertyName}"
           )
@@ -18,12 +18,12 @@ module.exports = (chai, utils) ->
           _super.apply @, arguments
 
 
-  overwriteMethod = (name, preposition, assertion) ->
-    method = _overwriteMethod preposition, assertion
+  overwriteMethod = (name, preposition) ->
+    method = _overwriteMethod preposition
     chai.Assertion.overwriteMethod name, method
 
-  overwriteChainableMethod = (name, preposition, assertion) ->
-    method = _overwriteMethod preposition, assertion
+  overwriteChainableMethod = (name, preposition) ->
+    method = _overwriteMethod preposition
 
     property = (_super) ->
       _super
@@ -32,8 +32,7 @@ module.exports = (chai, utils) ->
 
 
   overwriteAnMethod = (name) ->
-    overwriteChainableMethod name, "a", (property) ->
-      property?
+    overwriteChainableMethod name, name
 
 
   overwriteAnMethod "a"

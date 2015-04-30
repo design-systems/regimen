@@ -7,10 +7,9 @@ module.exports = (chai, utils, keyName) ->
       property = block[propertyName]
 
       if property?
+        negated = utils.flag @, "negate"
         actual = property[keyName]
         utils.flag @, "object", actual
-
-        negated = utils.flag @, "negate"
 
         try
           _super.apply @, arguments

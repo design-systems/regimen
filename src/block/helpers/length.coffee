@@ -1,17 +1,24 @@
 module.exports = (chai, utils) ->
 
-  _overwriteMethod = (preposition, assertion) ->
-    (_super) -> (number) ->
+  _overwriteMethod = (preposition) ->
+    (_super) -> (expected) ->
       block = @_obj
       propertyName = utils.flag @, "block.propertyName"
       property = block[propertyName]
 
-      if property.length?
-        expected = property.length
-        actual = number
+      if property?.length?
+        negated = utils.flag @, "negate"
+        actual = property
+        utils.flag @, "object", actual
+
+        try
+          _super.apply @, arguments
+          result = true
+        catch e
+          result = false
 
         @assert(
-          assertion expected, actual
+          if negated then not result else result
           "expected block #{block.id} to have a #{propertyName} with length #{preposition} \#{exp} but length was \#{act}"
           "expected block #{block.id} to not have a #{propertyName} with length #{preposition} \#{exp} but length was \#{act}"
           expected
@@ -21,12 +28,12 @@ module.exports = (chai, utils) ->
         _super.apply @, arguments
 
 
-  overwriteMethod = (name, preposition, assertion) ->
-    method = _overwriteMethod preposition, assertion
+  overwriteMethod = (name, preposition) ->
+    method = _overwriteMethod preposition
     chai.Assertion.overwriteMethod name, method
 
-  overwriteChainableMethod = (name, preposition, assertion) ->
-    method = _overwriteMethod preposition, assertion
+  overwriteChainableMethod = (name, preposition) ->
+    method = _overwriteMethod preposition
 
     property = (_super) ->
       _super
@@ -35,24 +42,19 @@ module.exports = (chai, utils) ->
 
 
   overwriteLeastMethod = (name) ->
-    overwriteMethod name, "at least", (length, number) ->
-      length >= number
+    overwriteMethod name, "at least"
 
   overwriteMostMethod = (name) ->
-    overwriteMethod name, "at most", (length, number) ->
-      length <= number
+    overwriteMethod name, "at most"
 
   overwriteAboveMethod = (name) ->
-    overwriteMethod name, "above", (length, number) ->
-      length > number
+    overwriteMethod name, "above"
 
   overwriteBelowMethod = (name) ->
-    overwriteMethod name, "below", (length, number) ->
-      length < number
+    overwriteMethod name, "below"
 
 
-  overwriteChainableMethod "length", "of", (length, number) ->
-    length is number
+  overwriteChainableMethod "length", "of"
 
   overwriteLeastMethod "least"
   overwriteLeastMethod "gte"
