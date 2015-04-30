@@ -27,6 +27,94 @@ chai.use grid
 
 describe "cover", ->
 
+  describe "src", ->
+
+    context "when expecting a block with a cover with a src", ->
+
+      block =
+        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+        cover:
+          src: "cover.jpg"
+
+      context "to have a src", ->
+        it "should succeed", ->
+          expect(block).to.have.a("cover").with.src
+          expect(block).to.have.a("cover").with.a.src
+          expect(block).to.have.a("cover").src
+
+          expect(block).with.a("cover").with.src
+          expect(block).with.a("cover").with.a.src
+          expect(block).with.a("cover").src
+
+      context "to not have a src", ->
+        it "should throw an error", ->
+          expect(->
+            expect(block).to.have.a("cover").not.with.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").not.with.a.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").not.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").not.with.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").not.with.a.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").not.src
+          ).to.throw AssertionError
+
+    context "when expecting a block with a cover without a src", ->
+
+      block =
+        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+        cover: {}
+
+      context "to not have a src", ->
+        it "should succeed", ->
+          expect(block).to.have.a("cover").not.with.src
+          expect(block).to.have.a("cover").not.with.a.src
+          expect(block).to.have.a("cover").not.src
+
+          expect(block).with.a("cover").not.with.src
+          expect(block).with.a("cover").not.with.a.src
+          expect(block).with.a("cover").not.src
+
+      context "to have a src", ->
+        it "should throw an error", ->
+          expect(->
+            expect(block).to.have.a("cover").with.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").with.a.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).to.have.a("cover").src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").with.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").with.a.src
+          ).to.throw AssertionError
+
+          expect(->
+            expect(block).with.a("cover").src
+          ).to.throw AssertionError
+
+
   describe "orientation", ->
 
     context "when expecting a block with a cover with an orientation", ->
@@ -34,9 +122,6 @@ describe "cover", ->
       block =
         id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
         cover:
-          src: "cover.jpg"
-          width: 1600
-          height: 900
           orientation: "portrait"
 
       context "to have an orientation", ->
@@ -112,10 +197,7 @@ describe "cover", ->
 
       block =
         id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover:
-          src: "cover.jpg"
-          width: 1600
-          height: 900
+        cover: {}
 
       context "to not have an orientation", ->
         it "should succeed", ->
