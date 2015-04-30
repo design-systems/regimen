@@ -3,7 +3,6 @@ existence = require "./helpers/existence"
 length = require "./helpers/length"
 
 module.exports = (chai, utils) ->
-  property = "html"
-  equality.call @, chai, utils, property
-  existence.call @, chai, utils, property
-  length.call @, chai, utils, property
+  equality.call @, chai, utils
+  existence.call @, chai, utils
+  length.call @, chai, utils
