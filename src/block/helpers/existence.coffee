@@ -7,7 +7,6 @@ module.exports = (chai, utils) ->
 
       if target?
         utils.flag @, "block.pathValue", path
-        utils.flag @, "block.#{path}", target
 
         @assert(
           target?
