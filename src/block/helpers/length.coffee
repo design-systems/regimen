@@ -1,4 +1,4 @@
-module.exports = (chai, utils) ->
+module.exports = (chai, utils, keyName) ->
 
   _overwriteMethod = (preposition) ->
     (_super) -> (expected) ->
@@ -6,10 +6,16 @@ module.exports = (chai, utils) ->
       propertyName = utils.flag @, "block.propertyName"
       property = block[propertyName]
 
-      if property?.length?
+      if property?
         negated = utils.flag @, "negate"
-        actual = property.length
-        utils.flag @, "object", property
+
+        value = property[keyName]
+
+        target = value
+        target ?= property
+
+        utils.flag @, "object", target
+        actual = target.length
 
         try
           _super.apply @, arguments

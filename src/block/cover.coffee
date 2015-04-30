@@ -1,6 +1,7 @@
 contains = require "./helpers/contains"
 equality = require "./helpers/equality"
 existence = require "./helpers/existence"
+length = require "./helpers/length"
 
 module.exports = (chai, utils) ->
   contains.call @, chai, utils, "src"
@@ -37,6 +38,7 @@ module.exports = (chai, utils) ->
 
   chai.Assertion.addProperty "src", ->
     block = @_obj
+    length.call @, chai, utils, "src"
 
     @assert(
       block.cover.src?
