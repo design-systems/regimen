@@ -1,7 +1,9 @@
+contains = require "./helpers/contains"
 equality = require "./helpers/equality"
 existence = require "./helpers/existence"
 
 module.exports = (chai, utils) ->
+  contains.call @, chai, utils, "src"
   equality.call @, chai, utils
   existence.call @, chai, utils
 
