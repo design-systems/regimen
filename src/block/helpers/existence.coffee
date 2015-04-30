@@ -10,8 +10,8 @@ module.exports = (chai, utils) ->
 
         @assert(
           target?
-          "expected block #{block.id} to have a #{path}"
-          "expected block #{block.id} to not have a #{path}"
+          "expected block #{block.id} to have #{preposition} #{path}"
+          "expected block #{block.id} to not have #{preposition} #{path}"
         )
       else
         _super.apply @, arguments
