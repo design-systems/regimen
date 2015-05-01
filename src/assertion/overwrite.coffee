@@ -1,4 +1,4 @@
-_overwriteMethod = (chai, utils, preposition) ->
+_overwriteMethod = (chai, utils, preposition, actualPath) ->
   (_super) -> (expected) ->
     block = @_obj
     path = utils.flag @, "block.pathValue"
@@ -8,6 +8,7 @@ _overwriteMethod = (chai, utils, preposition) ->
       negated = utils.flag @, "negate"
       utils.flag @, "object", target
       actual = target
+      actual = utils.getPathValue actualPath, target if actualPath?
 
       try
         _super.apply @, arguments
@@ -29,11 +30,11 @@ module.exports = (chai, utils) ->
 
   overwrite =
 
-    method: (name, preposition) ->
-      method = _overwriteMethod chai, utils, preposition
+    method: (name, preposition, path) ->
+      method = _overwriteMethod chai, utils, preposition, path
       chai.Assertion.overwriteMethod name, method
 
-    chainableMethod: (name, preposition) ->
-      method = _overwriteMethod chai, utils, preposition
+    chainableMethod: (name, preposition, path) ->
+      method = _overwriteMethod chai, utils, preposition, path
       property = (_super) -> _super
       chai.Assertion.overwriteChainableMethod name, method, property
