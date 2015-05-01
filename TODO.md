@@ -1,5 +1,7 @@
 # TODO:
 
+Update build pipeline. Add Phantom.
+
 Add and update specs with:
 
 * does
