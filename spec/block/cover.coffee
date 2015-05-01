@@ -82,7 +82,6 @@ grid = require "../../src/chai-grid"
 chai.use grid
 
 
-
 describe "cover", ->
 
   describe "src", ->
