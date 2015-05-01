@@ -1,8 +1,8 @@
 chai = require "chai"
 {expect, AssertionError} = chai
 
-grid = require "../../src/regimen"
-chai.use grid
+regimen = require "../../src/regimen"
+chai.use regimen
 
 describe "repost", ->
 
