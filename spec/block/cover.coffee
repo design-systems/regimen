@@ -13,7 +13,7 @@ validBlock =
     height: 900
     orientation: "landscape"
 
-differentValidBlock =
+anotherValidBlock =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f4"
   cover:
     src: "cover.png"
@@ -62,15 +62,15 @@ length "cover.src", validBlock
 
 comparison "cover.src.length", validBlock
 
-equality "cover.width", validBlock, differentValidBlock
+equality "cover.width", validBlock, anotherValidBlock
 existence "cover.width", validBlock, blockWithoutCoverWidth
 comparison "cover.width", validBlock
 
-equality "cover.height", validBlock, differentValidBlock
+equality "cover.height", validBlock, anotherValidBlock
 existence "cover.height", validBlock, blockWithoutCoverHeight
 comparison "cover.height", validBlock
 
-equality "cover.orientation", validBlock, differentValidBlock
+equality "cover.orientation", validBlock, anotherValidBlock
 existence "cover.orientation", validBlock, blockWithoutCoverOrientation
 length "cover.orientation", validBlock
 
