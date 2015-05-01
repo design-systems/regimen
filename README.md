@@ -5,6 +5,15 @@ Define what can be consumed.
 A [Chai](http://chaijs.com/) plugin for design systems at The Grid.
 
 
+## Usage
+
+```coffeescript
+chai = require "chai"
+regimen = require "regimen"
+chai.use regimen
+```
+
+
 ## Development
 
 ```sh
