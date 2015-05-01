@@ -1,3 +1,5 @@
 # Regimen
 
-Custom assertions for [Chai](http://chaijs.com/).
+Define what can be consumed.
+
+A [Chai](http://chaijs.com/) plugin for design systems at The Grid.
