@@ -1,5 +1,4 @@
 module.exports = (chai, utils) ->
-
   overwrite = require("../../assertion/overwrite")(chai, utils)
 
   overwriteLeastMethod = (name) ->
