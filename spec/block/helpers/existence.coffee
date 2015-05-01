@@ -17,6 +17,11 @@ module.exports = (path, validBlock, invalidBlock) ->
           expect(validBlock).with.a path
           expect(validBlock).with.an path
 
+          chai.util.getPathValue path, expect(validBlock).to.have.a
+          chai.util.getPathValue path, expect(validBlock).to.have.an
+          chai.util.getPathValue path, expect(validBlock).with.a
+          chai.util.getPathValue path, expect(validBlock).with.an
+
       context "to not have a #{path}", ->
         it "should throw an error", ->
           expect(->
@@ -36,6 +41,23 @@ module.exports = (path, validBlock, invalidBlock) ->
           ).to.throw AssertionError
 
 
+          expect(->
+            chai.util.getPathValue path, expect(validBlock).to.not.have.a
+          ).to.throw AssertionError
+
+          expect(->
+            chai.util.getPathValue path, expect(validBlock).to.not.have.an
+          ).to.throw AssertionError
+
+          expect(->
+            chai.util.getPathValue path, expect(validBlock).with.not.a
+          ).to.throw AssertionError
+
+          expect(->
+            chai.util.getPathValue path, expect(validBlock).with.not.an
+          ).to.throw AssertionError
+
+
     context "when expecting a block without a #{path}", ->
 
       context "to not have a #{path}", ->
@@ -44,6 +66,11 @@ module.exports = (path, validBlock, invalidBlock) ->
           expect(invalidBlock).to.not.have.an path
           expect(invalidBlock).not.with.a path
           expect(invalidBlock).not.with.an path
+
+          chai.util.getPathValue path, expect(invalidBlock).to.not.have.a
+          chai.util.getPathValue path, expect(invalidBlock).to.not.have.an
+          chai.util.getPathValue path, expect(invalidBlock).not.with.a
+          chai.util.getPathValue path, expect(invalidBlock).not.with.an
 
       context "to have a #{path}", ->
         it "should throw an error", ->
@@ -61,4 +88,21 @@ module.exports = (path, validBlock, invalidBlock) ->
 
           expect(->
             expect(invalidBlock).with.an path
+          ).to.throw AssertionError
+
+
+          expect(->
+            chai.util.getPathValue path, expect(invalidBlock).to.have.a
+          ).to.throw AssertionError
+
+          expect(->
+            chai.util.getPathValue path, expect(invalidBlock).to.have.an
+          ).to.throw AssertionError
+
+          expect(->
+            chai.util.getPathValue path, expect(invalidBlock).with.a
+          ).to.throw AssertionError
+
+          expect(->
+            chai.util.getPathValue path, expect(invalidBlock).with.an
           ).to.throw AssertionError
