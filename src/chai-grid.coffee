@@ -1,3 +1,6 @@
+methods = require "./assertion/methods"
+properties = require "./assertion/properties"
+
 repost = require "./item/repost" # TODO: accept string, make "type"?
 # expect(item).to.be.a("post").with.a("title")
 
@@ -10,10 +13,11 @@ equality = require "./block/helpers/equality"
 existence = require "./block/helpers/existence"
 length = require "./block/helpers/length"
 
-cover = require "./block/cover"
-
 
 module.exports = (chai, utils) ->
+
+  methods chai, utils
+  properties chai, utils
 
   # item
   repost chai, utils
@@ -28,6 +32,3 @@ module.exports = (chai, utils) ->
   equality chai, utils
   existence chai, utils
   length chai, utils
-
-  # block.properties
-  cover chai, utils
