@@ -1,7 +1,7 @@
 chai = require "chai"
 {expect, AssertionError} = chai
 
-regimen = require "../../../src/regimen"
+regimen = require "../../../lib/regimen"
 chai.use regimen
 
 module.exports = (path, validBlock) ->
