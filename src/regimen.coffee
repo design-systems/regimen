@@ -1,8 +1,7 @@
 methods = require "./assertion/methods"
 properties = require "./assertion/properties"
 
-repost = require "./item/repost" # TODO: accept string, make "type"?
-# expect(item).to.be.a("post").with.a("title")
+repost = require "./item/repost"
 
 ofType = require "./block/ofType"
 subtypeOf = require "./block/subtypeOf"
