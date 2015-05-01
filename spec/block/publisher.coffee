@@ -89,6 +89,8 @@ describe.skip "publisher", ->
 
     context "when expecting a block with a publisher with a url", ->
 
+      block = validBlock
+
       context "to have a url", ->
         it "should succeed", ->
 
@@ -96,6 +98,8 @@ describe.skip "publisher", ->
         it "should throw an error", ->
 
     context "when expecting a block with a publisher without a url", ->
+
+      block = blockWithoutPublisherUrl
 
       context "to not have a url", ->
         it "should succeed", ->
@@ -108,6 +112,8 @@ describe.skip "publisher", ->
 
     context "when expecting a block with a publisher with a name", ->
 
+      block = validBlock
+
       context "to have a name", ->
         it "should succeed", ->
 
@@ -115,6 +121,8 @@ describe.skip "publisher", ->
         it "should throw an error", ->
 
     context "when expecting a block with a publisher without a name", ->
+
+      block = blockWithoutPublisherName
 
       context "to not have a name", ->
         it "should succeed", ->
@@ -127,6 +135,8 @@ describe.skip "publisher", ->
 
     context "when expecting a block with a publisher with a favicon", ->
 
+      block = validBlock
+
       context "to have a favicon", ->
         it "should succeed", ->
 
@@ -134,6 +144,8 @@ describe.skip "publisher", ->
         it "should throw an error", ->
 
     context "when expecting a block with a publisher without a favicon", ->
+
+      block = blockWithoutPublisherFavicon
 
       context "to not have a favicon", ->
         it "should succeed", ->
@@ -146,6 +158,8 @@ describe.skip "publisher", ->
 
     context "when expecting a block with a publisher with a domain", ->
 
+      block = validBlock
+
       context "to have a domain", ->
         it "should succeed", ->
 
@@ -153,6 +167,8 @@ describe.skip "publisher", ->
         it "should throw an error", ->
 
     context "when expecting a block with a publisher without a domain", ->
+
+      block = blockWithoutPublisherDomain
 
       context "to not have a domain", ->
         it "should succeed", ->

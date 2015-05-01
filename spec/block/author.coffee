@@ -132,6 +132,8 @@ describe.skip "author", ->
 
     context "when expecting a block with an author with a name", ->
 
+      block = validBlock
+
       context "to have a name", ->
         it "should succeed", ->
 
@@ -139,6 +141,8 @@ describe.skip "author", ->
         it "should throw an error", ->
 
     context "when expecting a block with an author without a name", ->
+
+      block = blockWithoutAuthorName
 
       context "to not have a name", ->
         it "should succeed", ->
@@ -151,6 +155,8 @@ describe.skip "author", ->
 
     context "when expecting a block with an author with a url", ->
 
+      block = validBlock
+
       context "to have a url", ->
         it "should succeed", ->
 
@@ -158,6 +164,8 @@ describe.skip "author", ->
         it "should throw an error", ->
 
     context "when expecting a block with an author without a url", ->
+
+      block = blockWithoutAuthorUrl
 
       context "to not have a url", ->
         it "should succeed", ->
@@ -170,6 +178,8 @@ describe.skip "author", ->
 
     context "when expecting a block with an author with an avatar", ->
 
+      block = validBlock
+
       context "to have an avatar", ->
         it "should succeed", ->
 
@@ -177,6 +187,8 @@ describe.skip "author", ->
         it "should throw an error", ->
 
     context "when expecting a block with an author without an avatar", ->
+
+      block = blockWithoutAuthorAvatar
 
       context "to not have an avatar", ->
         it "should succeed", ->
@@ -189,6 +201,8 @@ describe.skip "author", ->
 
     context "when expecting a block with an author with an avatar src", ->
 
+      block = validBlock
+
       context "to have an avatar src", ->
         it "should succeed", ->
 
@@ -196,6 +210,8 @@ describe.skip "author", ->
         it "should throw an error", ->
 
     context "when expecting a block with an author without an avatar src", ->
+
+      block = blockWithoutAuthorAvatarSrc
 
       context "to not have an avatar src", ->
         it "should succeed", ->
@@ -208,6 +224,8 @@ describe.skip "author", ->
 
     context "when expecting a block with an author with an avatar width", ->
 
+      block = validBlock
+
       context "to have an avatar width", ->
         it "should succeed", ->
 
@@ -215,6 +233,8 @@ describe.skip "author", ->
         it "should throw an error", ->
 
     context "when expecting a block with an author without an avatar width", ->
+
+      block = blockWithoutAuthorAvatarWidth
 
       context "to not have an avatar width", ->
         it "should succeed", ->
@@ -227,6 +247,8 @@ describe.skip "author", ->
 
     context "when expecting a block with an author with an avatar height", ->
 
+      block = validBlock
+
       context "to have an avatar height", ->
         it "should succeed", ->
 
@@ -234,6 +256,8 @@ describe.skip "author", ->
         it "should throw an error", ->
 
     context "when expecting a block with an author without an avatar height", ->
+
+      block = blockWithoutAuthorAvatarHeight
 
       context "to not have an avatar height", ->
         it "should succeed", ->
