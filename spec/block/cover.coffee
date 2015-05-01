@@ -88,10 +88,7 @@ describe "cover", ->
 
     context "when expecting a block with a cover with a src", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover:
-          src: "cover.jpg"
+      block = validBlock
 
       context "to have a src", ->
         it "should succeed", ->
@@ -131,9 +128,7 @@ describe "cover", ->
 
     context "when expecting a block with a cover without a src", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover: {}
+      block = blockWithoutCoverSrc
 
       context "to not have a src", ->
         it "should succeed", ->
@@ -176,10 +171,7 @@ describe "cover", ->
 
     context "when expecting a block with a cover with a width", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover:
-          width: 1600
+      block = validBlock
 
       context "to have a width", ->
         it "should succeed", ->
@@ -209,9 +201,7 @@ describe "cover", ->
 
     context "when expecting a block with a cover without a width", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover: {}
+      block = blockWithoutCoverWidth
 
       context "to not have a width", ->
         it "should succeed", ->
@@ -244,10 +234,7 @@ describe "cover", ->
 
     context "when expecting a block with a cover with a height", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover:
-          height: 900
+      block = validBlock
 
       context "to have a height", ->
         it "should succeed", ->
@@ -277,9 +264,7 @@ describe "cover", ->
 
     context "when expecting a block with a cover without a height", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover: {}
+      block = blockWithoutCoverHeight
 
       context "to not have a height", ->
         it "should succeed", ->
@@ -312,10 +297,7 @@ describe "cover", ->
 
     context "when expecting a block with a cover with an orientation", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover:
-          orientation: "portrait"
+      block = validBlock
 
       context "to have an orientation", ->
         it "should succeed", ->
@@ -358,39 +340,37 @@ describe "cover", ->
       context "to have a specific orientation", ->
 
         it "should succeed with a valid block", ->
-          expect(block).to.have.a("cover").with.orientation "portrait"
-          expect(block).with.a("cover").oriented "portrait"
+          expect(block).to.have.a("cover").with.orientation "landscape"
+          expect(block).with.a("cover").oriented "landscape"
 
         it "should throw an error with an invalid block", ->
           expect(->
-            expect(block).to.have.a("cover").with.orientation "landscape"
+            expect(block).to.have.a("cover").with.orientation "portrait"
           ).to.throw AssertionError
 
           expect(->
-            expect(block).with.a("cover").oriented "landscape"
+            expect(block).with.a("cover").oriented "portrait"
           ).to.throw AssertionError
 
       context "to not have a specific orientation", ->
 
         it "should succeed with an invalid block", ->
-          expect(block).to.have.a("cover").not.with.orientation "landscape"
-          expect(block).with.a("cover").not.oriented "landscape"
+          expect(block).to.have.a("cover").not.with.orientation "portrait"
+          expect(block).with.a("cover").not.oriented "portrait"
 
         it "should throw an error with a valid block", ->
           expect(->
-            expect(block).to.have.a("cover").not.with.orientation "portrait"
+            expect(block).to.have.a("cover").not.with.orientation "landscape"
           ).to.throw AssertionError
 
           expect(->
-            expect(block).with.a("cover").not.oriented "portrait"
+            expect(block).with.a("cover").not.oriented "landscape"
           ).to.throw AssertionError
 
 
     context "when expecting a block with a cover without an orientation", ->
 
-      block =
-        id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-        cover: {}
+      block = blockWithoutCoverOrientation
 
       context "to not have an orientation", ->
         it "should succeed", ->
