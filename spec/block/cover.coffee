@@ -11,13 +11,15 @@ validBlock =
     src: "cover.jpg"
     width: 1600
     height: 900
+    orientation: "landscape"
 
 differentValidBlock =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f4"
   cover:
     src: "cover.png"
-    width: 1920
-    height: 1200
+    width: 1200
+    height: 1920
+    orientation: "portrait"
 
 blockWithoutCover =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
@@ -27,18 +29,28 @@ blockWithoutCoverSrc =
   cover:
     width: 1600
     height: 900
+    orientation: "landscape"
 
 blockWithoutCoverWidth =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   cover:
     src: "cover.jpg"
     height: 900
+    orientation: "landscape"
 
 blockWithoutCoverHeight =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   cover:
     src: "cover.jpg"
     width: 1600
+    orientation: "landscape"
+
+blockWithoutCoverOrientation =
+  id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+  cover:
+    src: "cover.jpg"
+    width: 1600
+    height: 900
 
 
 equality "cover", validBlock, blockWithoutCover
@@ -58,6 +70,9 @@ equality "cover.height", validBlock, differentValidBlock
 existence "cover.height", validBlock, blockWithoutCoverHeight
 comparison "cover.height", validBlock
 
+equality "cover.orientation", validBlock, differentValidBlock
+existence "cover.orientation", validBlock, blockWithoutCoverOrientation
+length "cover.orientation", validBlock
 
 
 chai = require "chai"
