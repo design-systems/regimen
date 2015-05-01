@@ -1,8 +1,8 @@
 {
   "name": "regimen",
   "version": "0.1.0",
-  "main": "lib/chai.js",
   "description": "Define what can be consumed. A Chai plugin for design systems at The Grid.",
+  "main": "lib/regimen.js",
   "scripts": {
     "build": "npm run clean; ./node_modules/.bin/coffee --compile --output lib/ src/",
     "clean": "find . -type f -name 'lib/**.*' -delete",
