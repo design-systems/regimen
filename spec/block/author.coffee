@@ -117,3 +117,126 @@ existence "author[0].avatar.width", validBlock, blockWithoutAuthorAvatarWidth
 comparison "author[0].avatar.height", validBlock
 equality "author[0].avatar.height", validBlock, anotherValidBlock
 existence "author[0].avatar.height", validBlock, blockWithoutAuthorAvatarHeight
+
+
+chai = require "chai"
+{expect, AssertionError} = chai
+
+grid = require "../../src/chai-grid"
+chai.use grid
+
+
+describe.skip "author", ->
+
+  describe "name", ->
+
+    context "when expecting a block with an author with a name", ->
+
+      context "to have a name", ->
+        it "should succeed", ->
+
+      context "to not have a name", ->
+        it "should throw an error", ->
+
+    context "when expecting a block with an author without a name", ->
+
+      context "to not have a name", ->
+        it "should succeed", ->
+
+      context "to have a name", ->
+        it "should throw an error", ->
+
+
+  describe "url", ->
+
+    context "when expecting a block with an author with a url", ->
+
+      context "to have a url", ->
+        it "should succeed", ->
+
+      context "to not have a url", ->
+        it "should throw an error", ->
+
+    context "when expecting a block with an author without a url", ->
+
+      context "to not have a url", ->
+        it "should succeed", ->
+
+      context "to have a url", ->
+        it "should throw an error", ->
+
+
+  describe "avatar", ->
+
+    context "when expecting a block with an author with an avatar", ->
+
+      context "to have an avatar", ->
+        it "should succeed", ->
+
+      context "to not have an avatar", ->
+        it "should throw an error", ->
+
+    context "when expecting a block with an author without an avatar", ->
+
+      context "to not have an avatar", ->
+        it "should succeed", ->
+
+      context "to have an avatar", ->
+        it "should throw an error", ->
+
+
+  describe "avatar src", ->
+
+    context "when expecting a block with an author with an avatar src", ->
+
+      context "to have an avatar src", ->
+        it "should succeed", ->
+
+      context "to not have an avatar src", ->
+        it "should throw an error", ->
+
+    context "when expecting a block with an author without an avatar src", ->
+
+      context "to not have an avatar src", ->
+        it "should succeed", ->
+
+      context "to have an avatar src", ->
+        it "should throw an error", ->
+
+
+  describe "avatar width", ->
+
+    context "when expecting a block with an author with an avatar width", ->
+
+      context "to have an avatar width", ->
+        it "should succeed", ->
+
+      context "to not have an avatar width", ->
+        it "should throw an error", ->
+
+    context "when expecting a block with an author without an avatar width", ->
+
+      context "to not have an avatar width", ->
+        it "should succeed", ->
+
+      context "to have an avatar width", ->
+        it "should throw an error", ->
+
+
+  describe "avatar height", ->
+
+    context "when expecting a block with an author with an avatar height", ->
+
+      context "to have an avatar height", ->
+        it "should succeed", ->
+
+      context "to not have an avatar height", ->
+        it "should throw an error", ->
+
+    context "when expecting a block with an author without an avatar height", ->
+
+      context "to not have an avatar height", ->
+        it "should succeed", ->
+
+      context "to have an avatar height", ->
+        it "should throw an error", ->
