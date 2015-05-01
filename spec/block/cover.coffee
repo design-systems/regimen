@@ -275,7 +275,7 @@ describe "cover", ->
             expect(block).with.a("cover").not.with.a.height
           ).to.throw AssertionError
 
-    context "when expecting a block with a cover without a width", ->
+    context "when expecting a block with a cover without a height", ->
 
       block =
         id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
