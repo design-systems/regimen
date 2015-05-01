@@ -78,7 +78,7 @@ length "cover.orientation", validBlock
 chai = require "chai"
 {expect, AssertionError} = chai
 
-grid = require "../../src/chai-grid"
+grid = require "../../src/regimen"
 chai.use grid
 
 

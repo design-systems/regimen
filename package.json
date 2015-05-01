@@ -1,5 +1,5 @@
 {
-  "name": "chai-grid",
+  "name": "regimen",
   "version": "0.1.0",
   "description": "Custom assertions for Chai.",
   "main": "lib/chai.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/the-grid/chai-grid.git"
+    "url": "https://github.com/the-grid/regimen.git"
   },
   "keywords": [
     "The Grid",
@@ -19,9 +19,9 @@
   "author": "Paul Young",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/the-grid/chai-grid/issues"
+    "url": "https://github.com/the-grid/regimen/issues"
   },
-  "homepage": "https://github.com/the-grid/chai-grid",
+  "homepage": "https://github.com/the-grid/regimen",
   "dependencies": {
     "flowerflip": "git+https://grid-bot:UZMgwrT02Hbs@github.com/the-grid/Flowerflip.git"
   },

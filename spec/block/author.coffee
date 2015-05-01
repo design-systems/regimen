@@ -122,7 +122,7 @@ existence "author[0].avatar.height", validBlock, blockWithoutAuthorAvatarHeight
 chai = require "chai"
 {expect, AssertionError} = chai
 
-grid = require "../../src/chai-grid"
+grid = require "../../src/regimen"
 chai.use grid
 
 
