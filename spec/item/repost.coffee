@@ -6,45 +6,74 @@ chai.use regimen
 
 describe "repost", ->
 
-  repost =
+  itemWithOneMediaBlock =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f1"
     content: [
       id: "88c63e90-803b-4a20-8384-a14b0c4900f2"
-      type: "video"
+      type: "media"
     ]
 
-  post =
+  itemWithOneNonMediaBlock =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f1"
     content: [
       id: "88c63e90-803b-4a20-8384-a14b0c4900f2"
       type: "text"
-    ,
-      id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
-      type: "article"
     ]
 
-  empty =
+  itemWithTwoMediaBlocks =
+    id: "88c63e90-803b-4a20-8384-a14b0c4900f1"
+    content: [
+      id: "88c63e90-803b-4a20-8384-a14b0c4900f2"
+      type: "video"
+    ,
+      id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+      type: "audio"
+    ]
+
+  itemWithNoBlocks =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f1"
     content: []
 
 
-  it "should succeed when expecting a repost to be a repost", ->
-    expect(repost).to.be.a.repost
+  context "when expecting an item with one media block to be a repost", ->
+    it "should succeed", ->
+      expect(itemWithOneMediaBlock).to.be.a.repost
 
-  it "should succeed when expecting a post to not be a repost", ->
-    expect(post).to.not.be.a.repost
+  context "when expecting an item with one media block to not be a repost", ->
+    it "should throw an error", ->
+      expect(->
+        expect(itemWithOneMediaBlock).to.not.be.a.repost
+      ).to.throw AssertionError
 
-  it "should succeed when expecting an item with empty content to not be a repost", ->
-    expect(empty).to.not.be.a.repost
 
-  it "should throw an error when expecting a post to be a repost", ->
-    exercise = -> expect(post).to.be.a.repost
-    expect(exercise).to.throw AssertionError
+  context "when expecting an item with one non-media block to not be a repost", ->
+    it "should succeed", ->
+      expect(itemWithOneNonMediaBlock).to.not.be.a.repost
 
-  it "should throw an error when expecting a repost to not be a repost", ->
-    exercise = -> expect(repost).to.not.be.a.repost
-    expect(exercise).to.throw AssertionError
+  context "when expecting an item with one non-media block to be a repost", ->
+    it "should throw an error", ->
+      expect(->
+        expect(itemWithOneNonMediaBlock).to.be.a.repost
+      ).to.throw AssertionError
 
-  it "should throw an error with expecting an item with empty content be a repost", ->
-    exercise = -> expect(empty).to.be.a.repost
-    expect(exercise).to.throw AssertionError
+
+  context "when expecting an item with two media blocks to not be a repost", ->
+    it "should succeed", ->
+      expect(itemWithTwoMediaBlocks).to.not.be.a.repost
+
+  context "when expecting an item with two media blocks to be a repost", ->
+    it "should throw an error", ->
+      expect(->
+        expect(itemWithTwoMediaBlocks).to.be.a.repost
+      ).to.throw AssertionError
+
+
+  context "when expecting an item with no blocks to not be a repost", ->
+    it "should succeed", ->
+      expect(itemWithNoBlocks).to.not.be.a.repost
+
+  context "when expecting an item with no blocks to be a repost", ->
+    it "should throw an error", ->
+      expect(->
+        expect(itemWithNoBlocks).to.be.a.repost
+      ).to.throw AssertionError
