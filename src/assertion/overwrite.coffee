@@ -2,7 +2,7 @@ _overwriteMethod = (chai, utils, preposition, actualPath) ->
   (_super) -> (expected) ->
     block = @_obj
     path = utils.flag @, "block.pathValue"
-    target = utils.getPathValue path, block
+    target = utils.getPathValue path, block if path?
 
     if target?
       negated = utils.flag @, "negate"
