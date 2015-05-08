@@ -7,6 +7,8 @@ length = require "./helpers/length"
 
 validBlock =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     name: "thegrid"
     url: "http://twitter.com/thegrid"
@@ -18,6 +20,8 @@ validBlock =
 
 anotherValidBlock =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec87"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     name: "thegridio"
     url: "http://twitter.com/thegridio"
@@ -29,9 +33,13 @@ anotherValidBlock =
 
 blockWithoutAuthor =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
 
 blockWithoutAuthorName =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     url: "http://twitter.com/thegrid"
     avatar:
@@ -42,6 +50,8 @@ blockWithoutAuthorName =
 
 blockWithoutAuthorUrl =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     name: "thegrid"
     avatar:
@@ -52,6 +62,8 @@ blockWithoutAuthorUrl =
 
 blockWithoutAuthorAvatar =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     name: "thegrid"
     url: "http://twitter.com/thegrid"
@@ -59,6 +71,8 @@ blockWithoutAuthorAvatar =
 
 blockWithoutAuthorAvatarSrc =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     name: "thegrid"
     url: "http://twitter.com/thegrid"
@@ -69,6 +83,8 @@ blockWithoutAuthorAvatarSrc =
 
 blockWithoutAuthorAvatarWidth =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     name: "thegrid"
     url: "http://twitter.com/thegrid"
@@ -79,6 +95,8 @@ blockWithoutAuthorAvatarWidth =
 
 blockWithoutAuthorAvatarHeight =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
+  item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+  score: 0
   author: [
     name: "thegrid"
     url: "http://twitter.com/thegrid"

@@ -2,10 +2,14 @@ module.exports = (chai, utils) ->
 
   _overwriteMethod = (preposition) ->
     (_super) -> (path) ->
-      block = @_obj
-      target = utils.getPathValue path, block
+      looksLikeBlock = (utils.type(@_obj) is "object") and
+                       @_obj.id? and
+                       @_obj.item? and
+                       @_obj.score?
 
-      if target?
+      if looksLikeBlock
+        block = @_obj
+        target = utils.getPathValue path, block
         utils.flag @, "block.pathValue", path
 
         @assert(

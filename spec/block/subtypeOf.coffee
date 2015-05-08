@@ -8,18 +8,26 @@ describe "subtypeOf", ->
 
   textual =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+    item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+    score: 0
     type: "textual"
 
   headline =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+    item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+    score: 0
     type: "headline"
 
   h1 =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+    item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+    score: 0
     type: "h1"
 
   media =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
+    item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
+    score: 0
     type: "media"
 
   context "when expecting a block to be a subtype of itself", ->
