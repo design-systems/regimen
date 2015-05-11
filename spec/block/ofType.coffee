@@ -9,7 +9,6 @@ describe "ofType", ->
   block =
     id: "88c63e90-803b-4a20-8384-a14b0c4900f1"
     item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-    score: 0
     type: "media"
 
   context "when expecting a block to be its type", ->

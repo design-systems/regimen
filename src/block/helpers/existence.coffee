@@ -2,10 +2,7 @@ module.exports = (chai, utils) ->
 
   _overwriteMethod = (preposition) ->
     (_super) -> (path) ->
-      looksLikeBlock = (utils.type(@_obj) is "object") and
-                       @_obj.id? and
-                       @_obj.item? and
-                       @_obj.score?
+      looksLikeBlock = (utils.type(@_obj) is "object") and @_obj.item?
 
       if looksLikeBlock
         block = @_obj

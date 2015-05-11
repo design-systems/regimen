@@ -8,7 +8,6 @@ length = require "./helpers/length"
 validBlock =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   cover:
     src: "cover.jpg"
     width: 1600
@@ -18,7 +17,6 @@ validBlock =
 anotherValidBlock =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f4"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   cover:
     src: "cover.png"
     width: 1200
@@ -28,12 +26,10 @@ anotherValidBlock =
 blockWithoutCover =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
 
 blockWithoutCoverSrc =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   cover:
     width: 1600
     height: 900
@@ -42,7 +38,6 @@ blockWithoutCoverSrc =
 blockWithoutCoverWidth =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   cover:
     src: "cover.jpg"
     height: 900
@@ -51,7 +46,6 @@ blockWithoutCoverWidth =
 blockWithoutCoverHeight =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   cover:
     src: "cover.jpg"
     width: 1600
@@ -60,7 +54,6 @@ blockWithoutCoverHeight =
 blockWithoutCoverOrientation =
   id: "88c63e90-803b-4a20-8384-a14b0c4900f3"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   cover:
     src: "cover.jpg"
     width: 1600

@@ -7,7 +7,6 @@ length = require "./helpers/length"
 validBlock =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   publisher:
     url: "http://twitter.com"
     name: "Twitter"
@@ -17,7 +16,6 @@ validBlock =
 anotherValidBlock =
   id: "7c999208-1a69-47df-8f31-35808673255f"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   publisher:
     url: "http://www.youtube.com/"
     name: "YouTube"
@@ -27,12 +25,10 @@ anotherValidBlock =
 blockWithoutPublisher =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
 
 blockWithoutPublisherUrl =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   publisher:
     name: "Twitter"
     favicon: "https://abs.twimg.com/favicons/favicon.ico"
@@ -41,7 +37,6 @@ blockWithoutPublisherUrl =
 blockWithoutPublisherName =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   publisher:
     url: "http://twitter.com"
     favicon: "https://abs.twimg.com/favicons/favicon.ico"
@@ -50,7 +45,6 @@ blockWithoutPublisherName =
 blockWithoutPublisherFavicon =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   publisher:
     url: "http://twitter.com"
     name: "Twitter"
@@ -59,7 +53,6 @@ blockWithoutPublisherFavicon =
 blockWithoutPublisherDomain =
   id: "0cefd9bc-5f03-480c-81fa-e85f788eec86"
   item: "097d28bc-97bb-47e9-8d05-b7ea05deba27"
-  score: 0
   publisher:
     url: "http://twitter.com"
     name: "Twitter"
