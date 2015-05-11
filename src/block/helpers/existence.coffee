@@ -9,10 +9,15 @@ module.exports = (chai, utils) ->
         target = utils.getPathValue path, block
         utils.flag @, "block.pathValue", path
 
+        if block.id?
+          messageText = "block #{block.id}"
+        else
+          messageText = "block from item #{block.item}"
+
         @assert(
           target?
-          "expected block #{block.id} to have #{preposition} #{path}"
-          "expected block #{block.id} to not have #{preposition} #{path}"
+          "expected #{messageText} to have #{preposition} #{path}"
+          "expected #{messageText} to not have #{preposition} #{path}"
         )
       else
         _super.apply @, arguments
