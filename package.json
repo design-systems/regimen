@@ -5,7 +5,7 @@
   "main": "lib/regimen.js",
   "scripts": {
     "build": "npm run clean; ./node_modules/.bin/coffee --compile --output lib/ src/",
-    "clean": "find . -type f -name 'lib/**.*' -delete",
+    "clean": "mkdir -p lib; rm -r lib; mkdir lib",
     "test": "npm run build; ./node_modules/.bin/mocha spec/**/*.coffee --compilers coffee:coffee-script/register --reporter spec"
   },
   "repository": {
