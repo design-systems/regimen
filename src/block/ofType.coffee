@@ -6,7 +6,7 @@ module.exports = (chai, utils) ->
 
     @assert(
       expectedType is actualType
-      "expected block #{id} to be a of type \#{exp} but got \#{act}"
+      "expected block #{id} to be of type \#{exp} but got \#{act}"
       "expected block #{id} to not be of type \#{exp}"
       expectedType
       actualType
