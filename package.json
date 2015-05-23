@@ -1,6 +1,6 @@
 {
   "name": "regimen",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Define what can be consumed. A Chai plugin for design systems at The Grid.",
   "main": "lib/regimen.js",
   "scripts": {
@@ -29,5 +29,11 @@
     "chai": "^2.3.0",
     "coffee-script": "^1.9.2",
     "mocha": "^2.2.4"
+  },
+  "browserify": {
+    "name": "regimen",
+    "transform": [
+      "coffeeify"
+    ]
   }
 }
