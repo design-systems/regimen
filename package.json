@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/the-grid/regimen",
   "dependencies": {
-    "flowerflip": "git+https://grid-bot:UZMgwrT02Hbs@github.com/the-grid/Flowerflip.git"
+    "flowerflip": "^0.2.2"
   },
   "devDependencies": {
     "chai": "^2.3.0",
