@@ -63,6 +63,15 @@ expect(block).to.have.a("cover").oriented "portrait"
 
 The second option should only serve as interim support for future additions in the block structure until custom properties and methods can be added.
 
+
+##### Optionals
+
+To specify requirements about optional content, use `maybe`:
+
+```coffeescript
+expect(block).to.maybe.have.a("title").with.length.lte 20
+```
+
 #### Types and Subtypes
 
 ```coffeescript
