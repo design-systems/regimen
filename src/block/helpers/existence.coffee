@@ -5,6 +5,9 @@ module.exports = (chai, utils) ->
       looksLikeBlock = (utils.type(@_obj) is "object") and @_obj.item?
 
       if looksLikeBlock
+        maybe = utils.flag @, "block.maybe"
+        return null if maybe is true
+
         block = @_obj
         target = utils.getPathValue path, block
         utils.flag @, "block.pathValue", path

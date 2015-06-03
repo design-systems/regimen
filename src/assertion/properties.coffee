@@ -76,6 +76,9 @@ module.exports = (chai, utils) ->
     )
 
 
+  chai.Assertion.addProperty "maybe", ->
+    utils.flag @, "block.maybe", true
+
 
   chai.Assertion.addProperty "name", ->
     block = @_obj
