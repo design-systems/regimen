@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm run clean; ./node_modules/.bin/coffee --compile --output lib/ src/",
     "clean": "mkdir -p lib; rm -r lib; mkdir lib",
-    "test": "npm run build; ./node_modules/.bin/mocha spec/**/*.coffee --compilers coffee:coffee-script/register --reporter spec"
+    "test": "npm run build; ./node_modules/.bin/mocha 'spec/**/*.coffee' --compilers coffee:coffee-script/register --reporter spec"
   },
   "repository": {
     "type": "git",
