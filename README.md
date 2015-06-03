@@ -69,7 +69,7 @@ The second option should only serve as interim support for future additions in t
 To specify requirements about optional content, use `maybe`:
 
 ```coffeescript
-expect(block).to.maybe.have.a("title").with.length.lte 20
+expect(block).to.maybe.have.a("title")?.with.length.lte 20
 ```
 
 #### Types and Subtypes
