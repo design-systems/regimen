@@ -1,6 +1,6 @@
 {
   "name": "regimen",
-  "version": "0.1.9",
+  "version": "0.2.0",
   "description": "Define what can be consumed. A Chai plugin for design systems at The Grid.",
   "main": "lib/regimen.js",
   "scripts": {
