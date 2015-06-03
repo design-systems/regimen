@@ -75,24 +75,12 @@ module.exports = (path, validBlock, invalidBlock) ->
           expect(validBlock).with.maybe.a path
           expect(validBlock).with.maybe.an path
 
-        it "should honor subsequent assertions", ->
-          expect(validBlock).to.maybe.have.a(path)?.to.exist
-          expect(validBlock).to.maybe.have.an(path)?.to.exist
-          expect(validBlock).with.maybe.a(path)?.to.exist
-          expect(validBlock).with.maybe.an(path)?.to.exist
-
       context "to maybe not have a #{path}", ->
         it "should succeed", ->
           expect(validBlock).to.maybe.not.have.a path
           expect(validBlock).to.maybe.not.have.an path
           expect(validBlock).not.with.maybe.a path
           expect(validBlock).not.with.maybe.an path
-
-        it "should honor subsequent assertions", ->
-          expect(validBlock).to.maybe.not.have.a(path)?.to.exist
-          expect(validBlock).to.maybe.not.have.an(path)?.to.exist
-          expect(validBlock).not.with.maybe.a(path)?.to.exist
-          expect(validBlock).not.with.maybe.an(path)?.to.exist
 
 
     context "when expecting a block without a #{path}", ->
@@ -104,21 +92,9 @@ module.exports = (path, validBlock, invalidBlock) ->
           expect(invalidBlock).not.with.maybe.a path
           expect(invalidBlock).not.with.maybe.an path
 
-        it "should ignore subsequent assertions", ->
-          expect(invalidBlock).to.maybe.not.have.a(path)?.to.equal false
-          expect(invalidBlock).to.maybe.not.have.an(path)?.to.equal false
-          expect(invalidBlock).not.with.maybe.a(path)?.to.equal false
-          expect(invalidBlock).not.with.maybe.an(path)?.to.equal false
-
       context "to maybe have a #{path}", ->
         it "should succeed", ->
           expect(invalidBlock).to.maybe.have.a path
           expect(invalidBlock).to.maybe.have.an path
           expect(invalidBlock).with.maybe.a path
           expect(invalidBlock).with.maybe.an path
-
-        it "should ignore subsequent assertions", ->
-          expect(invalidBlock).to.maybe.have.a(path)?.to.equal false
-          expect(invalidBlock).to.maybe.have.an(path)?.to.equal false
-          expect(invalidBlock).with.maybe.a(path)?.to.equal false
-          expect(invalidBlock).with.maybe.an(path)?.to.equal false

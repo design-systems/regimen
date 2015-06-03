@@ -6,11 +6,13 @@ module.exports = (chai, utils) ->
 
       if looksLikeBlock
         maybe = utils.flag @, "block.maybe"
-        return null if maybe is true
-
         block = @_obj
         target = utils.getPathValue path, block
         utils.flag @, "block.pathValue", path
+
+        if maybe is true
+          utils.flag @, "negate", false
+          return null unless target?
 
         if block.id?
           messageText = "block #{block.id}"
