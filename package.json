@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/the-grid/regimen.git"
+    "url": "https://github.com/design-systems/regimen.git"
   },
   "keywords": [
     "The Grid",
@@ -19,9 +19,9 @@
   "author": "Paul Young",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/the-grid/regimen/issues"
+    "url": "https://github.com/design-systems/regimen/issues"
   },
-  "homepage": "https://github.com/the-grid/regimen",
+  "homepage": "https://github.com/design-systems/regimen",
   "dependencies": {
     "flowerflip": "^0.2.2"
   },

@@ -1,4 +1,4 @@
-# Regimen [![Build Status](https://travis-ci.org/the-grid/regimen.svg)](https://travis-ci.org/the-grid/regimen)
+# Regimen [![Build Status](https://travis-ci.org/design-systems/regimen.svg)](https://travis-ci.org/design-systems/regimen)
 
 Define what can be consumed.
 
