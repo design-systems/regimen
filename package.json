@@ -23,12 +23,12 @@
   },
   "homepage": "https://github.com/design-systems/regimen",
   "dependencies": {
-    "flowerflip": "^0.2.2"
+    "flowerflip": "0.2.4"
   },
   "devDependencies": {
-    "chai": "^2.3.0",
-    "coffee-script": "^1.9.2",
-    "mocha": "^2.2.4"
+    "chai": "2.3.0",
+    "coffee-script": "1.10.0",
+    "mocha": "2.3.3"
   },
   "browserify": {
     "name": "regimen",
